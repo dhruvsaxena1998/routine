@@ -2,10 +2,8 @@
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -35,7 +33,7 @@ const createHabitSchema = z.object({
 });
 
 interface CreateRoutineBottomSheetProps {
-  onSubmitHandler: (values: any) => void;
+  onSubmitHandler: (values: unknown) => void;
 }
 
 const CreateRoutineBottomSheet: React.FC<CreateRoutineBottomSheetProps> = ({

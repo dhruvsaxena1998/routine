@@ -7,7 +7,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,7 +15,7 @@ interface HabitCardProps {
   habitName: string;
 }
 
-const HabitCard: React.FC<HabitCardProps> = ({ habitName }) => {
+const HabitCard: React.FC<HabitCardProps> = () => {
   const target = 4;
   const [completedTime, setCompletedTimes] = useState<number>(0);
 

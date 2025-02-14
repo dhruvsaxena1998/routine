@@ -9,7 +9,7 @@ export default function Home() {
     { id: 3, name: "Exercise" },
   ];
 
-  const onSubmitHandler = (values: any) => {
+  const onSubmitHandler = (values: unknown) => {
     console.log(values);
   };
 
