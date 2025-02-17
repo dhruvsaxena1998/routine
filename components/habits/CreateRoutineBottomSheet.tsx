@@ -26,14 +26,17 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState } from "react";
 
+import type { IRoutine } from "@/lib/types/routine";
+
 const createHabitSchema = z.object({
   name: z.string().min(3),
   description: z.string().optional(),
   target: z.coerce.number().positive().max(10),
+  completedTimes: z.number().default(0),
 });
 
 interface CreateRoutineBottomSheetProps {
-  onSubmitHandler: (values: unknown) => void;
+  onSubmitHandler: (values: Omit<IRoutine, "id">) => void
 }
 
 const CreateRoutineBottomSheet: React.FC<CreateRoutineBottomSheetProps> = ({
@@ -47,6 +50,7 @@ const CreateRoutineBottomSheet: React.FC<CreateRoutineBottomSheetProps> = ({
       name: "",
       description: "",
       target: 1,
+      completedTimes: 0,
     },
   });
 
@@ -69,7 +73,7 @@ const CreateRoutineBottomSheet: React.FC<CreateRoutineBottomSheetProps> = ({
         <SheetHeader>
           <SheetTitle>Create New Routine</SheetTitle>
           <SheetDescription>
-            Create a new routine to track your routines.
+            Create a new routine to track your habits.
           </SheetDescription>
 
           <Form {...form}>
